@@ -14,60 +14,60 @@ using OpenQA.Selenium.Edge;
 
 
 
-namespace SpecFlowProject1.StepDefinitions
+namespace SpecFlowProject1.StepDefinitions { 
+[Binding]
+public class hooks1 : Utility
 {
-    [Binding]
-    public  class hooks1 : Utility
-    {
-        public IWebDriver driver;
-        public Home_page home_Page;
-        public LoginPage loginobject;
+    public static IWebDriver driver;
+    public Home_page home_Page;
+    public LoginPage loginobject;
 
 
 
 
-        [BeforeFeature(Order =1)]
-        public  void GivenLaunchTheBrowser()
+    private  readonly ScenarioContext _scenarioContext;
+
+        public hooks1(ScenarioContext scenarioContext)
+        {
+            _scenarioContext = scenarioContext;
+        }
+
+        [BeforeScenario(Order = 1)]
+        public void BeforeScenarioWithTag()
         {
             String BrowserType = Baseclass.Configuration["Browser"];
-
-
-            switch (BrowserType)
-            {
+            switch (BrowserType) {
                 case "Chrome":
 
-                    driver = new ChromeDriver();
-                    implicitwait(driver);
-                    break;
-
+                         driver = new ChromeDriver();
+                         break;
                 case "Edge":
                     string edgeDriverPath = "C:\\Users\\HariniGandhi\\Downloads\\edgedriver_win64";
                     driver = new EdgeDriver(edgeDriverPath);
-                    implicitwait(driver);
                     break;
 
             }
 
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+        driver.Manage().Window.Maximize();
 
-        }
-        [BeforeFeature(Order = 2)]
 
-        public  void LogintoHirstPortal()
+         _scenarioContext.Set(driver, "WebDriver");
+    }
+
+
+
+        [AfterScenario]
+        public void AfterScenario()
         {
-            home_Page = new Home_page(driver);
-            home_Page.navigatetourl();
-            loginobject = new LoginPage(driver);
-            loginobject.login();
-            ExplicitWaitUntilPagegetsloaded(driver);
 
-            
+            _scenarioContext.Get<IWebDriver>("WebDriver").Quit();
 
         }
+
         
-        public static IWebDriver searchobject()
-        {
-            return driver;
-        }
+
+
 
 
     }

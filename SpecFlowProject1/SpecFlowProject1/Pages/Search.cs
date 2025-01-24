@@ -24,7 +24,7 @@ namespace SpecFlowProject1.Pages
         String title;
         [FindsBy(How = How.XPath, Using = "//div[@class='categories ']/child::div[position()=3]")]
         public IWebElement searchlink;
-        [FindsBy(How = How.XPath, Using = "/html/body/div[3]/div/div/div/form[1]/div[2]/input")]
+        [FindsBy(How = How.XPath, Using = "//input[@class='sc-cQFLBn cQDyth']")]
         public IWebElement jobname;
         [FindsBy(How = How.XPath, Using = "//div[@class='filters experience']")]
         public IWebElement dropdown;
@@ -52,18 +52,21 @@ namespace SpecFlowProject1.Pages
 
         public void Navigatetosearchpage()
         {
-            driver.Navigate().GoToUrl(Baseclass.Configuration["SearchURL"]);
+           // driver.Navigate().GoToUrl(Baseclass.Configuration["SearchURL"]);
+           // ExplicitWaitUntilPagegetsloaded(driver);
             searchlink.Click();
-            ExplicitWaitUntilPagegetsloaded(driver);
+            
 
            
-           //Thread.Sleep(2000);
+          // Thread.Sleep(2000);
 
 
         }
         
         public void Enterpreference(String job)
         {
+            
+            
             jobname.SendKeys(job);
             dropdown.Click();
            foreach (IWebElement element in exprange)

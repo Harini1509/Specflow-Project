@@ -7783,11 +7783,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HariniGandhi\\source\\repos\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1.csproj",
+      "projectUniqueName": "G:\\Documents\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1.csproj",
       "projectName": "SpecFlowProject1",
-      "projectPath": "C:\\Users\\HariniGandhi\\source\\repos\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1.csproj",
+      "projectPath": "G:\\Documents\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1.csproj",
       "packagesPath": "C:\\Users\\HariniGandhi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HariniGandhi\\source\\repos\\SpecFlowProject1\\SpecFlowProject1\\obj\\",
+      "outputPath": "G:\\Documents\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HariniGandhi\\AppData\\Roaming\\NuGet\\NuGet.Config",

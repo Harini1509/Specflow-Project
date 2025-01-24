@@ -30,6 +30,7 @@ namespace SpecFlowProject1.Pages
         Emailid.SendKeys(Baseclass.Configuration["Username"]);
         Password.SendKeys(Baseclass.Configuration["Password"]);
         Login.Click();
+            
            ExplicitWaitUntilPagegetsloaded(driver);
 
 

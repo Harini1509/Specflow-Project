@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using TechTalk.SpecFlow;
 using Microsoft.Extensions.Configuration;
 
+
 using System.IO;
 using Microsoft.Extensions.Configuration.Json;
 using OpenQA.Selenium.Edge;
@@ -23,57 +24,51 @@ namespace SpecFlowProject1.StepDefinitions
        // Home_page home_Page;
         Confirmationpage Oconfirm;
         Boolean result;
+        public Home_page home_Page;
+        public LoginPage loginobject;
+        private readonly ScenarioContext _scenarioContext;
 
-        //[Given(@"Launch the browser")]
-        //public void GivenLaunchTheBrowser()
-        //{
-        //    String BrowserType = Baseclass.Configuration["Browser"];
-           
 
-        //    switch (BrowserType)
-        //    {
-        //        case "Chrome":
-                    
-        //                driver = new ChromeDriver();
-        //            implicitwait(driver);
-        //                break;
-                    
-        //        case "Edge":
-        //            string edgeDriverPath = "C:\\Users\\HariniGandhi\\Downloads\\edgedriver_win64";
-        //            driver = new EdgeDriver(edgeDriverPath);
-        //            implicitwait(driver);
-        //            break;
+        public JobSearchSrepDefinition(ScenarioContext scenarioContext)
+        {
+            _scenarioContext = scenarioContext;
+        }
 
-        //    }
-            
 
-        //}
-        
+        [Given(@"Launch the browser")]
+        public void GivenLaunchTheBrowser()
+        {
+            driver = _scenarioContext.Get<IWebDriver>("WebDriver");
+        }
 
 
 
-        //[Given(@"User in the Hirist Home Page")]
-        //public void GivenUserInTheHiristHomePage()
-        //{
-        //    home_Page = new Home_page(driver);
-        //    Osearch = home_Page.navigatetourl();
-        //}
+
+        [Given(@"User in the Hirist Home Page")]
+        public void GivenUserInTheHiristHomePage()
+        {
+            home_Page = new Home_page(driver);
+             home_Page.navigatetourl();
+        }
 
 
-  
 
-       
+
+
         //[When(@"User Clicks on Advanced Search Link")]
         //public void WhenUserClicksOnAdvancedSearchLink()
         //{
         //    Osearch.Navigatetosearchpage();
         //}
-        [Given(@"User in the Hirst Job Seach Page")]
+        [Given(@"User in the Hirst Job Search Page")]
         public void GivenUserInTheHirstJobSeachPage()
         {
-            driver = hooks1.searchobject();
+            
+
             Osearch = new Search(driver);
-            Osearch.Navigatetosearchpage();
+           Osearch.Navigatetosearchpage();
+
+
         }
 
 
@@ -85,8 +80,11 @@ namespace SpecFlowProject1.StepDefinitions
         [When(@"User enters ""([^""]*)"" and click search")]
         public void WhenUserEntersAndClickSearch(string jobPreference)
         {
+           
+                Osearch.Enterpreference(jobPreference);
+               
+
             
-            Osearch.Enterpreference(jobPreference);
         }
 
 
@@ -122,16 +120,12 @@ namespace SpecFlowProject1.StepDefinitions
                 Console.WriteLine("No recent jobs");
 
             }
-            driver.Close();
+           
+
         }
 
 
-        [AfterScenario]
-        public void AfterScenario()
-        {
-
-            driver.Close();
-        }
+        
 
 
 

@@ -14,7 +14,7 @@ namespace SpecFlowProject1.Pages
         [FindsBy(How = How.XPath, Using = "//p[text()='Jobseeker Login']")]
         public IWebElement Jobseekarlink;
         [FindsBy(How = How.XPath, Using = "//span[text()='Sign In']")]
-        public IWebElement SigninLink;
+        public  IWebElement SigninLink;
         IWebDriver driver;
        
         public Home_page(IWebDriver driver)
@@ -29,10 +29,10 @@ namespace SpecFlowProject1.Pages
             driver.Manage().Window.Maximize();
             Jobseekarlink.Click();
             SigninLink.Click();
-            //LoginPage loginobject = new LoginPage(driver);
-            //loginobject.login();
+            LoginPage loginobject = new LoginPage(driver);
+            loginobject.login();
             ExplicitWaitUntilPagegetsloaded(driver);
-            
+
 
             //return new Search(driver);
         }
