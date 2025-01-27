@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Documents\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1.csproj": {}
+    "G:\\Documents\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1.csproj": {}
   },
   "projects": {
-    "G:\\Documents\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1.csproj": {
+    "G:\\Documents\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Documents\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1.csproj",
+        "projectUniqueName": "G:\\Documents\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1.csproj",
         "projectName": "SpecFlowProject1",
-        "projectPath": "G:\\Documents\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1.csproj",
+        "projectPath": "G:\\Documents\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1.csproj",
         "packagesPath": "C:\\Users\\HariniGandhi\\.nuget\\packages\\",
-        "outputPath": "G:\\Documents\\SpecFlowProject1\\SpecFlowProject1\\SpecFlowProject1\\obj\\",
+        "outputPath": "G:\\Documents\\SpecFlowProject1\\SpecFlowProject1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HariniGandhi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,6 +53,14 @@
             "DotNetSeleniumExtras.PageObjects.Core": {
               "target": "Package",
               "version": "[4.14.1, )"
+            },
+            "ExtentReports": {
+              "target": "Package",
+              "version": "[5.0.4, )"
+            },
+            "ExtentReports.Core": {
+              "target": "Package",
+              "version": "[1.0.3, )"
             },
             "FluentAssertions": {
               "target": "Package",
@@ -113,6 +121,10 @@
             "System.IO": {
               "target": "Package",
               "version": "[4.3.0, )"
+            },
+            "extent": {
+              "target": "Package",
+              "version": "[0.0.3, )"
             }
           },
           "imports": [

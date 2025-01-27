@@ -20,8 +20,7 @@ namespace SpecFlowProject1.StepDefinitions
     public class JobSearchSrepDefinition:Utility
     {
         public IWebDriver driver;
-        public Search Osearch;
-       // Home_page home_Page;
+        public Search searchobject;
         Confirmationpage Oconfirm;
         Boolean result;
         public Home_page home_Page;
@@ -48,25 +47,20 @@ namespace SpecFlowProject1.StepDefinitions
         public void GivenUserInTheHiristHomePage()
         {
             home_Page = new Home_page(driver);
-             home_Page.navigatetourl();
+            loginobject= home_Page.navigatetourl();
+            searchobject = loginobject.login();
+
+
         }
 
 
-
-
-
-        //[When(@"User Clicks on Advanced Search Link")]
-        //public void WhenUserClicksOnAdvancedSearchLink()
-        //{
-        //    Osearch.Navigatetosearchpage();
-        //}
         [Given(@"User in the Hirst Job Search Page")]
         public void GivenUserInTheHirstJobSeachPage()
         {
-            
 
-            Osearch = new Search(driver);
-           Osearch.Navigatetosearchpage();
+
+
+            searchobject.Navigatetosearchpage();
 
 
         }
@@ -80,8 +74,8 @@ namespace SpecFlowProject1.StepDefinitions
         [When(@"User enters ""([^""]*)"" and click search")]
         public void WhenUserEntersAndClickSearch(string jobPreference)
         {
-           
-                Osearch.Enterpreference(jobPreference);
+
+            searchobject.Enterpreference(jobPreference);
                
 
             
@@ -94,17 +88,17 @@ namespace SpecFlowProject1.StepDefinitions
         public void ThenApplicableJobsShouldDisplay()
         {
            
-            Assert.IsTrue(Osearch.checkbox.Count > 0);
+            Assert.IsTrue(searchobject.checkbox.Count > 0);
         }
         [When(@"user select all jobs")]
         public void WhenUserSelectAllJobs()
         {
-            Osearch.Selectapplicablejobs();
+            searchobject.Selectapplicablejobs();
         }
         [When(@"click on Apply")]
         public void WhenClickOnApply()
         {
-            result= Osearch.Applyforjobs();
+            result= searchobject.Applyforjobs();
         }
         [Then(@"Jobs should be applied successfully")]
 

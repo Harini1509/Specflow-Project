@@ -25,13 +25,17 @@ namespace SpecFlowProject1.Pages
         PageFactory.InitElements(driver, this);
         
         }
-        public void login()
+        public Search login()
         {
         Emailid.SendKeys(Baseclass.Configuration["Username"]);
         Password.SendKeys(Baseclass.Configuration["Password"]);
         Login.Click();
             
            ExplicitWaitUntilPagegetsloaded(driver);
+            return new Search(driver);
+
+
+
 
 
 

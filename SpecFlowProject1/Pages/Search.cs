@@ -52,13 +52,12 @@ namespace SpecFlowProject1.Pages
 
         public void Navigatetosearchpage()
         {
-           // driver.Navigate().GoToUrl(Baseclass.Configuration["SearchURL"]);
-           // ExplicitWaitUntilPagegetsloaded(driver);
+           
             searchlink.Click();
             
 
            
-          // Thread.Sleep(2000);
+          
 
 
         }

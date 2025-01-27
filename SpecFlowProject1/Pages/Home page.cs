@@ -23,18 +23,17 @@ namespace SpecFlowProject1.Pages
             PageFactory.InitElements(driver, this);
         }
        
-        public void navigatetourl()
+        public LoginPage navigatetourl()
         {
             driver.Navigate().GoToUrl(Baseclass.Configuration["HomepageURL"]);
             driver.Manage().Window.Maximize();
             Jobseekarlink.Click();
             SigninLink.Click();
-            LoginPage loginobject = new LoginPage(driver);
-            loginobject.login();
+            
             ExplicitWaitUntilPagegetsloaded(driver);
 
 
-            //return new Search(driver);
+            return new LoginPage(driver);
         }
 
         

@@ -96,7 +96,7 @@ namespace SpecFlowProject1.Features
 #line 3
 #line hidden
 #line 6
-   testRunner.Given("Launch the browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("Launch the browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
  testRunner.Given("User in the Hirist Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
@@ -132,13 +132,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 3
 this.FeatureBackground();
 #line hidden
-#line 12
+#line 13
  testRunner.Given("User in the Hirst Job Search Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 13
+#line 14
     testRunner.Then("User should see search preferences", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 14
+#line 15
  testRunner.When(string.Format("User enters \"{0}\" and click search", jobPreference), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 16
