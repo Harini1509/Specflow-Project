@@ -29,10 +29,7 @@ namespace SpecFlowProject1.Pages
             driver.Manage().Window.Maximize();
             Jobseekarlink.Click();
             SigninLink.Click();
-            
             ExplicitWaitUntilPagegetsloaded(driver);
-
-
             return new LoginPage(driver);
         }
 

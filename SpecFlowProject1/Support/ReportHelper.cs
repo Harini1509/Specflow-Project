@@ -17,23 +17,9 @@ public static class ReportHelper
 
     public static void InitializeReport()
     {
-        var reportPath = Path.Combine(Directory.GetCurrentDirectory(), "ExtentReport.html");
-
-        var htmlReporter = new ExtentHtmlReporter(reportPath);
-
+       var htmlReporter = new ExtentHtmlReporter(@"C:\Users\HariniGandhi\");
         extent = new AventStack.ExtentReports.ExtentReports();
-
-       
         extent.AttachReporter(htmlReporter);
-        var reportDirectory = Path.GetDirectoryName(reportPath);
-        if (!Directory.Exists(reportDirectory))
-        {
-            Directory.CreateDirectory(reportDirectory);
-            Console.WriteLine("Report directory created: " + reportDirectory);
-        }
-
-
-
         test = extent.CreateTest("Automation Test");
         Console.WriteLine("Invoked");
     }
@@ -45,7 +31,7 @@ public static class ReportHelper
     {
         var screenshot = ((ITakesScreenshot)driver).GetScreenshot();
 
-        
+
         var screenshotDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Screenshots");
         if (!Directory.Exists(screenshotDirectory))
         {

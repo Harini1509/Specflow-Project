@@ -17,7 +17,7 @@ using OpenQA.Selenium.Interactions;
 namespace SpecFlowProject1.StepDefinitions
 {
     [Binding]
-    public class JobSearchSrepDefinition:Utility
+    public class JobSearchSrepDefinition : Utility
     {
         public IWebDriver driver;
         public Search searchobject;
@@ -40,33 +40,20 @@ namespace SpecFlowProject1.StepDefinitions
             driver = _scenarioContext.Get<IWebDriver>("WebDriver");
         }
 
-
-
-
         [Given(@"User in the Hirist Home Page")]
         public void GivenUserInTheHiristHomePage()
         {
             home_Page = new Home_page(driver);
-            loginobject= home_Page.navigatetourl();
+            loginobject = home_Page.navigatetourl();
             searchobject = loginobject.login();
-
-
         }
-
-
-        [Given(@"User in the Hirst Job Search Page")]
-        public void GivenUserInTheHirstJobSeachPage()
+        [When(@"User Clicks on Job Search")]
+        public void WhenUserClicksOnJobSearch()
         {
-
-
-
             searchobject.Navigatetosearchpage();
+        }   
 
-
-        }
-
-
-        [Then(@"User should see search preferences")]
+       [Then(@"User should see search preferences")]
         public void ThenUserShouldSeeSearchPreferences()
         {
             Assert.IsTrue(driver.FindElement(By.XPath("//div[@class='heading']")).Text.Equals("Search for Jobs, Companies, Courses"));
@@ -76,18 +63,13 @@ namespace SpecFlowProject1.StepDefinitions
         {
 
             searchobject.Enterpreference(jobPreference);
-               
 
-            
         }
 
-
-
-        
         [Then(@"applicable jobs should display")]
         public void ThenApplicableJobsShouldDisplay()
         {
-           
+
             Assert.IsTrue(searchobject.checkbox.Count > 0);
         }
         [When(@"user select all jobs")]
@@ -98,7 +80,7 @@ namespace SpecFlowProject1.StepDefinitions
         [When(@"click on Apply")]
         public void WhenClickOnApply()
         {
-            result= searchobject.Applyforjobs();
+            result = searchobject.Applyforjobs();
         }
         [Then(@"Jobs should be applied successfully")]
 
@@ -106,7 +88,7 @@ namespace SpecFlowProject1.StepDefinitions
         {
             if (result == true)
             {
-                Oconfirm=new Confirmationpage(driver);
+                Oconfirm = new Confirmationpage(driver);
                 Assert.IsTrue(Oconfirm.confirmation());
             }
             else
@@ -114,15 +96,9 @@ namespace SpecFlowProject1.StepDefinitions
                 Console.WriteLine("No recent jobs");
 
             }
-           
+
 
         }
-
-
-        
-
-
-
 
     }
 }

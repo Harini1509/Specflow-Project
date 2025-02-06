@@ -34,27 +34,7 @@ namespace SpecFlowProject1.Pages
            ExplicitWaitUntilPagegetsloaded(driver);
             return new Search(driver);
 
-
-
-
-
-
-
         }
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
 
 
     }

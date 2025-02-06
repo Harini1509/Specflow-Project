@@ -18,12 +18,9 @@ namespace SpecFlowProject1.Pages
 {
     public class Utility
     {
-
-
         public void implicitwait(IWebDriver driver)
         {
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
-
 
         }
         public void switchtowindow(IWebDriver driver)

@@ -44,7 +44,6 @@ namespace SpecFlowProject1.StepDefinitions
         public void BeforeScenarioWithTag()
         {
             
-            
 
                 string browserType = Baseclass.Configuration["Browser"];
                 switch (browserType)
@@ -58,8 +57,7 @@ namespace SpecFlowProject1.StepDefinitions
                         break;
                 }
             
-            
-
+           
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.Manage().Window.Maximize();
 

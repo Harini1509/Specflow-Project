@@ -14,10 +14,10 @@ using System.Xml.Linq;
 
 namespace SpecFlowProject1.Pages
 {
-    public class Search :Utility
+    public class Search : Utility
     {
         IWebDriver driver;
-        Boolean flag=false;
+        Boolean flag = false;
         IJavaScriptExecutor js;
 
 
@@ -41,34 +41,26 @@ namespace SpecFlowProject1.Pages
         [FindsBy(How = How.XPath, Using = "//div[@class='no-jobs-title']//following-sibling::div")]
         public IWebElement confirm;
 
-        public Search(IWebDriver driver) {
+        public Search(IWebDriver driver)
+        {
             this.driver = driver;
-            PageFactory.InitElements(driver,this);
-            
+            PageFactory.InitElements(driver, this);
+
         }
-      
-
-        
-
         public void Navigatetosearchpage()
         {
-           
+
             searchlink.Click();
-            
-
-           
-          
-
 
         }
-        
+
         public void Enterpreference(String job)
         {
-            
-            
+
+
             jobname.SendKeys(job);
             dropdown.Click();
-           foreach (IWebElement element in exprange)
+            foreach (IWebElement element in exprange)
             {
                 String Experience = element.Text;
                 if (Experience.Equals(Baseclass.Configuration["Experience"]))
@@ -80,7 +72,7 @@ namespace SpecFlowProject1.Pages
 
             }
 
-            action(driver,submit);
+            action(driver, submit);
             WaituntilElementAppears(driver, ApplyAll);
 
             //Actions ac = new Actions(driver);
@@ -89,47 +81,27 @@ namespace SpecFlowProject1.Pages
             // Thread.Sleep(2000);
 
 
-
-
         }
-        
-
-
-
-
-        public void Selectapplicablejobs()
+     public void Selectapplicablejobs()
         {
-           
+
             foreach (IWebElement job in checkbox)
             {
-
-
 
                 if (job.Enabled == true)
                 {
                     flag = true;
                     string id = job.GetAttribute("id");
-                
-                     js = (IJavaScriptExecutor)driver;
-                    
-                    js.ExecuteScript("arguments[0].scrollIntoView();", job);
-
-               
+                    js = (IJavaScriptExecutor)driver;
+                   js.ExecuteScript("arguments[0].scrollIntoView();", job);
                     string script = $"document.getElementById('{id}').click();";
-
                     js.ExecuteScript(script);
                     js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
-                   
-                    
-
 
                 }
-                
+          }
 
-            }
-
-            
-        }
+      }
         public Boolean Applyforjobs()
         {
             if (flag == true)
@@ -139,18 +111,10 @@ namespace SpecFlowProject1.Pages
                 ExplicitWaitUntilPagegetsloaded(driver);
 
                 //Thread.Sleep(3000);
+         }
 
-
-
-            }
-           
             return flag;
+       }
 
-            
-        }
-        
-
-
-
-    }
+  }
 }
